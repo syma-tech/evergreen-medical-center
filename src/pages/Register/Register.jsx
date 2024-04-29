@@ -1,6 +1,38 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
+  const [error, setError] = useState(null);
+  const { signUp } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  /* onSubmit function handle from  here */
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    // const name = form.get("name");
+    const email = form.get("email");
+    const password = form.get("password");
+    if (password.length < 6) {
+      setError("Password should be at least 6 character");
+      return <></>;
+    } else {
+      setError("");
+    }
+
+    console.log(name, email, password);
+    signUp(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error);
+      });
+  };
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -13,7 +45,7 @@ const Register = () => {
           </p>
         </div>
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form className="card-body">
+          <form onSubmit={handleSignUp} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
@@ -57,7 +89,7 @@ const Register = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-primary">Register</button>
             </div>
           </form>
           <p className="ml-9 pb-8">
@@ -66,6 +98,7 @@ const Register = () => {
               Login
             </Link>
           </p>
+          <p>{error}</p>
         </div>
       </div>
     </div>

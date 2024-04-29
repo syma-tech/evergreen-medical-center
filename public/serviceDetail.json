@@ -39,14 +39,13 @@
   {
     "department": "Anesthesia & Pain Medicine",
     "id": "007",
-    "name": "Anesthesia & Pain Medicine",
+
     "image": "[Insert Image URL of Pain Management Center]",
     "description": "Find relief from acute and chronic pain at the Pain Management Center of Evergreen Medical Center. Our multidisciplinary team of pain specialists, anesthesiologists, and physiatrists is dedicated to improving your quality of life by effectively managing pain.\n\nOur pain management services encompass comprehensive pain assessments, interventional pain procedures (e.g., epidural injections, nerve blocks), medication management, physical therapy, and psychological support. We tailor treatment plans to each patient's specific needs and goals, addressing pain from various causes including injuries, surgeries, arthritis, and chronic conditions.\n\nOur goal is to enhance your overall well-being and functionality, allowing you to regain control over your life and activities. We are committed to providing compassionate care and empowering patients to live with reduced pain and improved quality of life."
   },
   {
     "department": "ENT (Ear, Nose, Throat) & Thyroid",
     "id": "008",
-    "name": "ENT (Ear, Nose, Throat) & Thyroid",
 
     "image": "[Insert Image URL of ENT Clinic]",
     "description": "Welcome to the Otolaryngology Clinic  at Evergreen Medical Center, specializing in the diagnosis and treatment of ear, nose, throat (ENT), and thyroid disorders. Led by skilled ENT surgeons and specialists, we provide advanced care for a wide range of ENT conditions. Our clinic offers comprehensive services including hearing tests, treatment of sinus disorders, voice and swallowing evaluations, allergy testing, thyroid evaluations, head and neck cancer screenings, and surgical procedures such as tonsillectomy, septoplasty, and thyroidectomy. We are dedicated to restoring your health and improving your quality of life by addressing ENT and thyroid issues with precision and expertise."

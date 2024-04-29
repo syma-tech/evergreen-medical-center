@@ -1,26 +1,39 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+  console.log(user?.email);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => {
+        console.error(error);
+        navigate("/login");
+      });
+  };
   const navLinks = (
     <>
-      <li>
+      <li className="mx-4 font-poppins">
         <NavLink to="/">Home</NavLink>
       </li>
 
-      <li>
+      <li className="mx-4 font-poppins">
         <NavLink to="/services">Services</NavLink>
       </li>
-      <li>
+      <li className="mx-4 font-poppins">
         <NavLink to="/login">Login</NavLink>
       </li>
 
-      <li>
+      <li className="mx-4 font-poppins">
         <NavLink to="/register">Register</NavLink>
       </li>
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar container mx-auto bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -41,7 +54,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 "
           >
             {navLinks}
           </ul>
@@ -51,7 +64,27 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        {user ? (
+          <div className="flex items-center ">
+            <p className="mr-6 font-poppins font-bold">{user?.email}</p>
+            <Link
+              onClick={() => handleLogOut()}
+              className="btn font-poppins"
+              to="/"
+            >
+              Sign Out
+            </Link>
+          </div>
+        ) : (
+          <div>
+            <Link className="btn mx-4 font-poppins" to="/login">
+              Login
+            </Link>
+            <Link className="btn font-poppins" to="/register">
+              Register
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

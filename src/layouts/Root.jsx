@@ -5,11 +5,17 @@ import Footer from "../pages/Shared/Footer/Footer";
 
 const Root = () => {
   return (
-    <div className="mx-auto px-20">
-      <Header />
-      <Navbar />
-      <Outlet />
-      <Footer />
+    <div className="">
+      <div className="mx-auto px-20">
+        <Header />
+        <Navbar />
+      </div>
+      <div>
+        <Outlet />
+      </div>
+      <div className="bg-base-200">
+        <Footer />
+      </div>
     </div>
   );
 };
