@@ -5,7 +5,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
-  console.log(user?.email);
+  // console.log(user.email);
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -21,14 +21,22 @@ const Navbar = () => {
       </li>
 
       <li className="mx-4 font-poppins">
+        <NavLink to="/about">About</NavLink>
+      </li>
+
+      <li className="mx-4 font-poppins">
         <NavLink to="/services">Services</NavLink>
       </li>
+
       <li className="mx-4 font-poppins">
         <NavLink to="/login">Login</NavLink>
       </li>
 
       <li className="mx-4 font-poppins">
         <NavLink to="/register">Register</NavLink>
+      </li>
+      <li className="mx-4 font-poppins">
+        <NavLink to="/contact">Contact</NavLink>
       </li>
     </>
   );

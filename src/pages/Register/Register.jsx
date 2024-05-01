@@ -4,14 +4,14 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
   const [error, setError] = useState(null);
-  const { signUp } = useContext(AuthContext);
+  const { signUp, userNameShowed } = useContext(AuthContext);
   const navigate = useNavigate();
 
   /* onSubmit function handle from  here */
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
-    // const name = form.get("name");
+    const name = form.get("name");
     const email = form.get("email");
     const password = form.get("password");
     if (password.length < 6) {

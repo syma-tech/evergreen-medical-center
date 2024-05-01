@@ -14,7 +14,7 @@ const ServiceDetails = () => {
   const { name, image, description } = serviceDetails;
   return (
     <div>
-      <div className="card w-1/2 mb-11 mx-auto bg-base-100 shadow-xl">
+      <div className="card md:w-1/2 sm:w-full  mb-11 mx-auto bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="card-title pb-6">{name}</h2>
           <p>{description}</p>

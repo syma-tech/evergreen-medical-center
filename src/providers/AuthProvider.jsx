@@ -13,11 +13,14 @@ import {
 export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
+console.log(auth);
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  console.log(user);
 
   const signUp = (email, password) => {
     setLoading(true);
@@ -41,11 +44,11 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log(currentUser);
       if (currentUser) {
-        console.log(currentUser);
         setUser(currentUser);
-        setLoading(false);
       }
+      setLoading(false);
     });
     return () => {
       unSubscribe();
@@ -56,6 +59,7 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     signUp,
+
     signIn,
     googleLogIn,
     logOut,
